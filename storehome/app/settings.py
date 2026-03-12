@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",  # Для работы с статическими файлами. Не забудьте добавить путь к статическим файлам в настройках.
     "main",  # Регистрация нового приложения.
+    "goods",  # Регистрация нового приложения.
 ]
 
 MIDDLEWARE = [

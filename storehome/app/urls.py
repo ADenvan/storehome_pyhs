@@ -19,6 +19,22 @@ from django.urls import path, include
 
 urlpatterns = [ # Список маршрутов приложения
     path('admin/', admin.site.urls), # Маршрут для админ-панели
-    path('', include('main.urls', namespace='main')) # Маршрут для главного приложения
+    path('', include('main.urls', namespace='main')), # Маршрут для главного приложения
+
+
+    # Маршрут для каталога товаров
+    # include - функция для включения других URL-конфигураций
+    # 'goods.urls' - путь к файлу URL-конфигурации каталога товаров
+    # namespace='catalog' - пространство имен для маршрутов каталога товаров
+    path('catalog/', include('goods.urls', namespace='catalog'))
+
 
 ]
+
+"""
+com
+com/admin/
+com/about/
+com/catalog/
+com/catalog/product/
+"""
