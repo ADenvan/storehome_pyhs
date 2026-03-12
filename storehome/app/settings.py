@@ -13,71 +13,77 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent # путь к папке проекта app
+BASE_DIR = (
+    Path(__file__).resolve().parent.parent
+)  # путь к папке проекта app / Указывает путь к корневой папке проекта app
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2c7b)_m1abhy8%a4wqedm#8%pat!s58h9epw38g6#tyb3w9+4p'
+SECRET_KEY = "django-insecure-2c7b)_m1abhy8%a4wqedm#8%pat!s58h9epw38g6#tyb3w9+4p"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Для отморожение отладочной информации.
+DEBUG = True  # Для отморожение отладочной информации.
 
-ALLOWED_HOSTS = [] # Список разрешенных хостов для доступа к приложению
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # Указывает настройку хранения статических файлов. Django использует этот параметр для определения, где хранить статические файлы. В данном случае используется стандартная настройка Django.
+
+ALLOWED_HOSTS = []  # Список разрешенных хостов для доступа к приложению
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'main', # Регистрация нового приложения.
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",  # Для работы с статическими файлами. Не забудьте добавить путь к статическим файлам в настройках.
+    "main",  # Регистрация нового приложения.
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'app.urls' # Указывает на файл URL-маршрутов для приложения
+ROOT_URLCONF = "app.urls"  # Указывает на файл URL-маршрутов для приложения
 
-TEMPLATES = [ # Настройки шаблонов html страницы для приложения
+TEMPLATES = [  # Настройки шаблонов html страницы для приложения
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates', # DjangoTemplates Движок шаблонов Django
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",  # DjangoTemplates Движок шаблонов Django
+        "DIRS": [],  # 'DIRS': [BASE_DIR / 'templates'],  # Убедитесь, что путь к папке с шаблонами правильный
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application' # Протокол WSGI для взаимодействия с веб-сервером
+WSGI_APPLICATION = (
+    "app.wsgi.application"  # Протокол WSGI для взаимодействия с веб-сервером
+)
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = { # Настройки базы данных. Подключение к базе данных SQLite3 или PostgreSQL
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES = {  # Настройки базы данных. Подключение к базе данных SQLite3 или PostgreSQL
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -87,16 +93,16 @@ DATABASES = { # Настройки базы данных. Подключение
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -104,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us' # На каком языку работает проект / Отображается в админ панель.
+LANGUAGE_CODE = "en-us"  # На каком языку работает проект / Отображается в админ панель.
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -116,9 +122,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/' # Путь к статическим файлам / Префикс для URL-адресов статических файлов.
+STATIC_URL = (
+    "static/"  # Префикс для URL-адресов статических файлов / Директория, в которой хранятся статические файлы.
+)
+
+# STATIC_ROOT = BASE_DIR / "staticfiles" # Путь к директории, в которую будут собираться все статические файлы.
+STATICFILES_DIRS = [
+
+    BASE_DIR / "static", # Дополнительные директории, в которых Django будет искать статические файлы.
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' # Тип поля для первичного ключа по умолчанию. Для каждой последователь будет добавляться последовательной id.
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"  # Тип поля для первичного ключа по умолчанию. Для каждой последователь будет добавляться последовательной id.
+
+# В конец settings.py
