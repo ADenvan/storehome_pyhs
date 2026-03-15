@@ -59,7 +59,8 @@
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
                                 <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Админ панель</a></li>
+                                {% comment %} Указываем ссылку на админ панель {% endcomment %}
+                                <li><a class="dropdown-item  text-white" href="{% url "admin:index" %}">Админ панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -88,13 +89,16 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Кухня</a></li>
+                        {% comment %} Берем категории из модели Categories {% endcomment %}
+                        {% for category in categories %}
+                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                        {% comment %} <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Кухня</a></li>
                         <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Спальня</a></li>
                         <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Гостинная</a></li>
                         <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Офис</a></li>
                         <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Фурнитура</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Декор</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Декор</a></li> {% endcomment %}
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->

@@ -80,8 +80,8 @@ WSGI_APPLICATION = (
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {  # Настройки базы данных. Подключение к базе данных SQLite3 или PostgreSQL
+# Настройки базы данных. Подключение к базе данных SQLite3 или PostgreSQL
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"  # На каком языку работает проект / Отображается в админ панель.
+LANGUAGE_CODE = "en-us"  # На каком языку работает проект / Отображается в админ панель. "ru-ru" для русского языка. "en" для английского языка.
 
 TIME_ZONE = "UTC"
 
