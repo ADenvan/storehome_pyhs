@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from logging import DEBUG
+
 from django.contrib import admin
 from django.urls import path, include
 
@@ -27,9 +29,12 @@ urlpatterns = [ # Список маршрутов приложения
     # 'goods.urls' - путь к файлу URL-конфигурации каталога товаров
     # namespace='catalog' - пространство имен для маршрутов каталога товаров
     path('catalog/', include('goods.urls', namespace='catalog'))
-
-
 ]
+
+if DEBUG:
+    urlpatterns += [
+        path('__debug__/', include("debug_toolbar.urls")),
+    ]
 
 """
 com

@@ -1,8 +1,9 @@
 https://www.youtube.com/watch?v=w-ITLbRfhnA&list=PLNi5HdK6QEmWNqncVoUZtj1QDC2VV0wI6
 
-# Версия Django Этого проекта
+# Версия Django Этого проекта django==4.2.
 django==4.2.
-Pillow - Бля работы с изображением.
+pip install Pillow - Бля работы с изображением.
+pip install django-debug-toolbar - Используем как расширение для Django
 
 # Версия Python 3.11.9
 

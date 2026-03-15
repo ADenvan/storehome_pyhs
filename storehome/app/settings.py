@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",  # Для работы с статическими файлами. Не забудьте добавить путь к статическим файлам в настройках.
+    "debug_toolbar", # Для отладки Django.
     "main",  # Регистрация нового приложения.
     "goods",  # Регистрация нового приложения.
 ]
@@ -53,6 +54,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware", # Для отладки Django.
+
 ]
 
 ROOT_URLCONF = "app.urls"  # Указывает на файл URL-маршрутов для приложения
@@ -131,6 +135,14 @@ STATIC_URL = (
 STATICFILES_DIRS = [
 
     BASE_DIR / "static", # Дополнительные директории, в которых Django будет искать статические файлы.
+]
+
+# Проверка IP-адресов разработки, которые могут просматривать админку и отладочные страницы.
+# Это полезно при разработке, чтобы не было необходимости вводить IP-адрес каждого разработчика.
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
 ]
 
 # Default primary key field type
