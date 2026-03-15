@@ -8,13 +8,13 @@ from goods.models import Categories  # Импортируем модели из 
 def index(request):
 
     # Добавляем переменную категории для отображения.
-    categories = Categories.objects.all()  # Получаем все категории из базы данных.
-    print(categories)  # Выводим категории в консоль для проверки.
+    # categories = Categories.objects.all()  # Получаем все категории из базы данных.
+    # print(categories)  # Выводим категории в консоль для проверки.
 
     context = {  # Контекст для передачи данных в шаблон.
         "title": "Главная страница",  # Контекстная переменная для заголовка страницы.
         "content": "Магазин мебели HOME",
-        "categories": categories,  # Передаем категории в шаблон.
+        # "categories": categories,  # Передаем категории в шаблон.
     }
     return render(
         request, "main/index.html", context

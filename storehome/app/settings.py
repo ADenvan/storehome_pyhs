@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+from django.conf.global_settings import MEDIA_ROOT, MEDIA_URL
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = (
     Path(__file__).resolve().parent.parent
@@ -24,8 +26,16 @@ BASE_DIR = (
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-2c7b)_m1abhy8%a4wqedm#8%pat!s58h9epw38g6#tyb3w9+4p"
 
+# -------------------------------------------
+# Дополнительные настройки (опционально, но полезно)
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda request: True,  # Показывать панель всегда при DEBUG=True
+    'ENABLE_STACKTRACES': True,  # Показывать стек вызовов
+}
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Для отморожение отладочной информации.
+# -------------------------------------------
 
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # Указывает настройку хранения статических файлов. Django использует этот параметр для определения, где хранить статические файлы. В данном случае используется стандартная настройка Django.
 
@@ -47,6 +57,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware", # Для отладки Django. Важно убедитесь, что этот middleware находится перед любыми другими middleware.
+
+
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -55,7 +68,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
-    "debug_toolbar.middleware.DebugToolbarMiddleware", # Для отладки Django.
 
 ]
 
@@ -137,12 +149,16 @@ STATICFILES_DIRS = [
     BASE_DIR / "static", # Дополнительные директории, в которых Django будет искать статические файлы.
 ]
 
+MEDIA_URL = 'media/' # Префикс для URL-адресов медиафайлов / Директория, в которой хранятся медиафайлы.
+MEDIA_ROOT = BASE_DIR / 'media' # Путь к директории, в которую будут загружаться медиафайлы.
+
+
 # Проверка IP-адресов разработки, которые могут просматривать админку и отладочные страницы.
 # Это полезно при разработке, чтобы не было необходимости вводить IP-адрес каждого разработчика.
 INTERNAL_IPS = [
-    # ...
+
     "127.0.0.1",
-    # ...
+    "::1" # IPv6-адрес localhost.
 ]
 
 # Default primary key field type

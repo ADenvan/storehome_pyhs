@@ -14,10 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from logging import DEBUG
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings # Для работы с медиа-файлами (изображения, видео и т.д.)
+from django.conf.urls.static import static # Для работы с медиа-файлами (изображения, видео и т.д.)
+
+
 
 urlpatterns = [ # Список маршрутов приложения
     path('admin/', admin.site.urls), # Маршрут для админ-панели
@@ -28,13 +32,16 @@ urlpatterns = [ # Список маршрутов приложения
     # include - функция для включения других URL-конфигураций
     # 'goods.urls' - путь к файлу URL-конфигурации каталога товаров
     # namespace='catalog' - пространство имен для маршрутов каталога товаров
-    path('catalog/', include('goods.urls', namespace='catalog'))
+    path('catalog/', include('goods.urls', namespace='catalog')),
 ]
 
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += [
-        path('__debug__/', include("debug_toolbar.urls")),
+        path('__debug__/', include('debug_toolbar.urls')),
+
     ]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Добавляем маршруты для отображения медиа-файлов в режиме разработки. settings.MEDIA_URL - URL для доступа к медиа-файлам, settings.MEDIA_ROOT - путь к директории с медиа-файлами.
+
 
 """
 com
