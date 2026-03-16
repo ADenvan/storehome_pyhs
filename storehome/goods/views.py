@@ -1,7 +1,8 @@
 from django.shortcuts import render # render - функция для отображения шаблонов
-
 from goods.models import Products
 
+# Контроллер для страницы каталога товаров
+# В этом контроллере мы будем получать все товары из базы данных и передавать их в шаблон для отображения.
 
 # catalog - страница каталога товаров
 def catalog(request):
@@ -16,8 +17,13 @@ def catalog(request):
 
 
 # Страница товаров
-def product(request):
-    return render(request, "goods/product.html")
+def product(request, product_slug):
+    product = Products.objects.get(slug=product_slug) # Получаем товар по его ID из базы данных.
+
+    context = {
+        'product': product
+    }
+    return render(request, "goods/product.html", context=context)
 
 
 #

@@ -1,8 +1,8 @@
 {% extends "main/base.html" %}
 {% load static %}
-
-
 {% block content %}
+
+
 <!-- Контент на странице -->
 <div class="row">
     <!-- Форма фильтров -->
@@ -59,7 +59,8 @@
             {% endif %}
 
             <div class="card-body">
-                <a href="../goods/product.html">
+                {% comment %} Указываем обратное разрешение URL-адресов в шаблоне для отображения страницы товара.  {% endcomment %}
+                <a href="{% url "catalog:product" product.slug %}">
                     <p class="card-title">{{ product.name }}</p>
                 </a>
                 <p class="card-text text-truncate"> {{ product.description }}</p>
