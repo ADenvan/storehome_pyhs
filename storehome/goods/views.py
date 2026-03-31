@@ -1,17 +1,30 @@
-from django.shortcuts import render # render - функция для отображения шаблонов
+from django.core.paginator import Paginator
+from django.shortcuts import get_list_or_404, get_object_or_404, render # render - функция для отображения шаблонов
 from goods.models import Products
 
 # Контроллер для страницы каталога товаров
 # В этом контроллере мы будем получать все товары из базы данных и передавать их в шаблон для отображения.
 
 # catalog - страница каталога товаров
-def catalog(request):
+def catalog(request, category_slug, page=1):
 
-    goods = Products.objects.all() # Получаем все товары из базы данных.
+    # Выбор товаров ВСЕ или по фильтру из списка.
+    if category_slug == 'all': # Если категория равна 'all'
+        goods = Products.objects.all() # Получаем все товары из базы данных.
+    else:
+        goods = get_list_or_404(Products.objects.filter(category__slug=category_slug)) # Получаем товары из базы данных по категории.
+
+
+    paginator = Paginator(goods, 3)  # Создаем объект Paginator, который будет разбивать список товаров на страницы. Каждая страница будет содержать 3 товара.
+    current_page = paginator.page(page) #
+
 
     context = {
         "title": "Hme - catalog",
-        "goods": goods,  # Передаем переменную goods в шаблон. В шаблоне мы можем обращаться к этой переменной как к списку объектов модели Products. Каждый объект будет представлять собой товар из базы данных. Мы можем использовать цикл for для перебора всех товаров и отображения их на странице каталога.
+        "goods": current_page,
+        "slug_url": category_slug,
+
+
     }
     return render(request, "goods/catalog.html", context)
 

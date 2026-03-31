@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=w-ITLbRfhnA&list=PLNi5HdK6QEmWNqncVoUZtj1QDC2VV0
 # Версия Django Этого проекта django==4.2.
 django==4.2.
 pip install Pillow - Бля работы с изображением.
-pip install django-debug-toolbar - Используем как расширение для Django
+pip install django-debug-toolbar - Используем как расширение для Django.
 
 # Версия Python 3.11.9
 
@@ -43,3 +43,18 @@ storehome/
 # Схема базы данных.
 - Структура данных.
 ![Scheme db](database-schema.png)
+
+app/
+
+
+
+
+goods/
+  - templates/
+    - catalog.html
+      - ![Paginator.md](roadmap\Paginator.md)  
+
+
+
+
+

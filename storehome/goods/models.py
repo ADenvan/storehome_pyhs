@@ -17,6 +17,7 @@ class Categories(models.Model):
             "Категории"  # Название модели во множественном числе в админке
         )
 
+
     # Переопределяем метод __str__ для удобства отображения в админке.
     def __str__(self):
         return self.name
@@ -52,6 +53,7 @@ class Products(models.Model):
         verbose_name_plural = (
             "Продукты"  # Название модели во множественном числе в админке
         )
+        ordering = ("id",)
 
     def __str__(self):
         return f"{self.name} Количество: {self.quantity}"
