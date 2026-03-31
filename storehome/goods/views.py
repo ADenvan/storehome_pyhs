@@ -6,7 +6,10 @@ from goods.models import Products
 # В этом контроллере мы будем получать все товары из базы данных и передавать их в шаблон для отображения.
 
 # catalog - страница каталога товаров
-def catalog(request, category_slug, page=1):
+def catalog(request, category_slug):
+
+    # Получение маршрута через request Делаем ГЕТ запрос
+    page = request.GET.get('page', 1) # Получаем номер текущей страницы из параметра запроса 'page'. Если параметр не указан, то по умолчанию используется первая страница.
 
     # Выбор товаров ВСЕ или по фильтру из списка.
     if category_slug == 'all': # Если категория равна 'all'
@@ -16,7 +19,7 @@ def catalog(request, category_slug, page=1):
 
 
     paginator = Paginator(goods, 3)  # Создаем объект Paginator, который будет разбивать список товаров на страницы. Каждая страница будет содержать 3 товара.
-    current_page = paginator.page(page) #
+    current_page = paginator.page(int(page)) 
 
 
     context = {
