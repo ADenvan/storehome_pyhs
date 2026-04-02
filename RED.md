@@ -4,6 +4,7 @@ https://www.youtube.com/watch?v=w-ITLbRfhnA&list=PLNi5HdK6QEmWNqncVoUZtj1QDC2VV0
 django==4.2.
 pip install Pillow - Бля работы с изображением.
 pip install django-debug-toolbar - Используем как расширение для Django.
+pip install psycopg2 - Для postgresSQL
 
 # Версия Python 3.11.9
 
@@ -45,6 +46,8 @@ storehome/
 ![Scheme db](database-schema.png)
 
 app/
+  - settings.py
+    - ![settings](roadmap\settings.md)
 
 
 
@@ -55,6 +58,8 @@ goods/
       - ![Paginator.md](roadmap\Paginator.md)
   - urls.py
     - search ![search](roadmap\add_search_url.md)
+  - migrations
+    - ![migrations](roadmap\migrations.md)
 
 
 fixtures/

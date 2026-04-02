@@ -1,1 +1,58 @@
-[{"model": "goods.categories", "pk": 1, "fields": {"name": "Все товары", "slug": "all"}}, {"model": "goods.categories", "pk": 2, "fields": {"name": "Кухня", "slug": "kuhnya"}}, {"model": "goods.categories", "pk": 3, "fields": {"name": "Спальня", "slug": "spalnya"}}, {"model": "goods.categories", "pk": 4, "fields": {"name": "Гостинная", "slug": "gostinnaya"}}, {"model": "goods.categories", "pk": 5, "fields": {"name": "Офис", "slug": "ofis"}}, {"model": "goods.categories", "pk": 6, "fields": {"name": "Фурнитура", "slug": "furnitura"}}, {"model": "goods.categories", "pk": 7, "fields": {"name": "Декор", "slug": "dekor"}}]
+[
+    {
+        "model": "goods.categories",
+        "pk": 1,
+        "fields": {
+            "name": "Р’СЃРµ С‚РѕРІР°СЂС‹",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 2,
+        "fields": {
+            "name": "РљСѓС…РЅСЏ",
+            "slug": "kuhnya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 3,
+        "fields": {
+            "name": "РЎРїР°Р»СЊРЅСЏ",
+            "slug": "spalnya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 4,
+        "fields": {
+            "name": "Р“РѕСЃС‚РёРЅР°СЏ",
+            "slug": "gostinnaya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 5,
+        "fields": {
+            "name": "РћС„РёСЃ",
+            "slug": "ofis"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "Р¤СѓСЂРЅРёС‚СѓСЂР°",
+            "slug": "furnitura"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "Р”РµРєРѕСЂ",
+            "slug": "dekor"
+        }
+    }
+]
