@@ -52,8 +52,14 @@ app/
 goods/
   - templates/
     - catalog.html
-      - ![Paginator.md](roadmap\Paginator.md)  
+      - ![Paginator.md](roadmap\Paginator.md)
+  - urls.py
+    - search ![search](roadmap\add_search_url.md)
 
+
+fixtures/
+  - goods/
+    - ![fixture/goods](roadmap\fixtures.md)
 
 
 
